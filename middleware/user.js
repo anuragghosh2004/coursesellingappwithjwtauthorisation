@@ -6,6 +6,7 @@ function usermiddlewear(req,res,next){
     const jwtToken =words[1];
 const decodedvalue=jwt.verify(jwtToken,jwt_pass);   
 if(decodedvalue.username){
+    req.username=decodedvalue.username;
     next();
 }else{
     res.json({
